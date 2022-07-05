@@ -1,0 +1,59 @@
+<?php
+
+require "db.php";
+		  
+$conn = mysqli_connect($host, $user,$pass,$database);
+		  
+$error = mysqli_connect_error();
+if($error != null){
+  	$output="<p> Unable to connect to database</P>".$error;
+		exit($output);
+}
+
+if (isset($_POST["importExcel"])) {
+
+    include 'simple-xlsx-2020-05-19\src\simplexlsx.class.php';
+ 	$file = $_FILES['file']['type'];
+	
+    $xlsx = new SimpleXLSX( '$file' );
+	
+    $fp = fopen( 'file.csv', 'w');
+    foreach( $xlsx->rows() as $fields ) {
+        fputcsv( $fp, $fields);
+    }
+    fclose($fp);
+
+	if(!empty($_FILES['file']['type'])){
+		   // If the file is uploaded
+        if(is_uploaded_file($_FILES['file']['tmp_name'])){
+            
+            // Open uploaded CSV file with read-only mode
+            $csvFile = fopen($_FILES['file']['tmp_name'], 'r');
+            
+            // Skip the first line
+            fgetcsv($csvFile);
+			
+			// Parse data from CSV file line by line
+            while(($line = fgetcsv($csvFile)) !== FALSE)
+			{
+				$SName = $line[0];
+				$SType = $line[1];
+				$SStudentsTotal = $line[2];
+				$sql = "INSERT INTO schools(SName, SType, SStudentsTotal) values ('$SName','$SType','$SStudentsTotal')";
+				mysqli_query($conn,$sql);
+			}
+			if($sql)
+			{ 
+				echo "sucess";
+			}
+			else 
+			{
+				echo "Sorry! Unable to import.";
+			}
+	   	}
+		  // Close opened CSV file
+        	fclose($csvFile);
+	}
+}
+header('Location: schoolsShow.php');
+?>
