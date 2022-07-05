@@ -14,19 +14,19 @@ An internal system to assist the admission department in the recruitment of new 
 1. Registration
 2. Login
 3. Dashboard
-      Shows progress reports of students, schools, and activities. The reports are dynamically generated from the SQL database.
+      - Shows progress reports of students, schools, and activities. The reports are dynamically generated from the SQL database.
 4. Tracking student information
-      Import by excel sheet
-      Import directly through an online form in the system
-      Show database tables data and export it to an excel sheet
+      - Import by excel sheet
+      - Import directly through an online form in the system
+      - Show database tables data and export it to an excel sheet
 5. Tracking schools information
-      Import by excel sheet
-      Import directly through an online form in the system
-      Show database tables data and export it to excel sheet
+      - Import by excel sheet
+      - Import directly through an online form in the system
+      - Show database tables data and export it to excel sheet
 6. Tracking activities information
-      Import by excel sheet
-      Import directly through an online form in the system
-      Show database tables data and export it to excel sheet
+      - Import by excel sheet
+      - Import directly through an online form in the system
+      - Show database tables data and export it to excel sheet
 7. Logout
 
 ## Database Structure
