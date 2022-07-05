@@ -52,6 +52,6 @@ The database is named recruitment. It has four tables:
 ## Copyright and License
 
 All copyrights reserved to their owners.
-For more details, check the LICENSE
+For more details, check the LICENSE.
 
 Copyright 2013-2020 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/gh-pages/LICENSE) license.
